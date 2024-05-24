@@ -1,0 +1,121 @@
+body {
+    background-color: rgb(128, 160, 110);
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.header {
+    background-color: rgb(99, 123, 86);
+    margin-left: 29px;
+    margin-right: 29px;
+    border-radius: 20px;
+}
+
+@keyframes huvudtext {
+    0% {
+        color: rgb(99, 123, 86);
+        left: 0px;
+        top: 0px;
+    }
+    30% {
+        color: rgb(99, 123, 86);
+        left: 0px;
+        top: 0px;
+    }
+    60% {
+        color: rgb(0, 0, 0);
+        left: 0px;
+        top: 0px;
+    }
+    100% {
+        color: rgb(255, 255, 255);
+        left: 0px;
+        top: 0px;
+    }
+}
+
+.headertext {
+    width: 100%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    position: relative;
+    animation-name: huvudtext;
+    animation-duration: 4s;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 40px;
+}
+
+#addProjectBtn{
+    height: 40px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+}
+
+#searchField{
+    width: 85%;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.addProjectForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card {
+    width: 200px; 
+    height: 200px; 
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .project-card:hover {
+    transform: scale(1.05);
+  }
+
+  .cardDiv{
+    display: flex;
+    overflow: auto;
+    white-space: nowrap;
+    margin-left: 29px;
+    margin-right: 29px;
+    align-items: center;
+    
+  }
+
+  .scrum-board {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.column {
+    flex: 1;
+    margin: 0 10px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.assignment-card {
+    background-color: #ffffff;
+    margin: 10px 0px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
