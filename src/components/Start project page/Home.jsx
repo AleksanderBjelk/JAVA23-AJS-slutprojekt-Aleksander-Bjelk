@@ -1,6 +1,6 @@
-import { onValue, push, ref, set } from "firebase/database";
+import { onValue, push, ref, remove, set } from "firebase/database";
 import { useEffect, useState } from "react";
-import { projectsRef } from "../../modules/firebaseConfig";
+import { projectsRef, db } from "../../modules/firebaseConfig";
 import ProjectsDiv from "./ProjectsDiv";
 import AddProject from "./AddProject";
 
@@ -22,6 +22,18 @@ function Home() {
         });
     };
 
+    const handleRemoveProject = (projectId) => {
+        const projectRef = ref(db, `projects/${projectId}`);
+        remove(projectRef)
+            .then(() => {
+                console.log("projekt readerat");
+            })
+            .catch((error) => {
+                console.error("Projekt ej raderat", error);
+            });
+    };
+    
+
 
     const projectIds = Object.keys(projects);
 
@@ -37,7 +49,7 @@ function Home() {
             <AddProject onAddProject={handleAddProject} />
             
             <main>
-                <ProjectsDiv projects={projects} />
+                <ProjectsDiv projects={projects}  onRemoveProject={handleRemoveProject}/>
             </main>
         </div>
     );

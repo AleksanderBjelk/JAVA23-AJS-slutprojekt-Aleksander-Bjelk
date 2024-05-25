@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ProjectsDiv({ projects }) {
+function ProjectsDiv({ projects, onRemoveProject }) {
   console.log("Projects:", projects); 
 
   return (
@@ -13,10 +13,10 @@ function ProjectsDiv({ projects }) {
               <div key={projectId} className="project-card">
 
 
+                <button id="removeProjectBtn" onClick={() => onRemoveProject(projectId)}>X</button>
                 <Link to={`/project/${projectId}`}>
                   <h2>{projects[projectId].name}</h2>
                 </Link>
-                
               </div>
           ))
       ) : (
