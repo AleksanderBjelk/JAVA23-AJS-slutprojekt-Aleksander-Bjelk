@@ -74,8 +74,10 @@ function ProjectDetails() {
         <div>
             {project ? (
                 <div>
-                    <h2>{project.name} Scrum Board</h2>
-                    <div>
+                    <div className="header">
+                    <h2 className="headertext">Scrum Board: {project.name} </h2>
+                    </div>
+                    <div className="addAssignmentDiv">
                         <input
                             type="text"
                             value={newAssignment.assignment}

@@ -48,31 +48,38 @@ body {
     font-size: 40px;
 }
 
-#addProjectBtn{
+#addProjectBtn {
     height: 40px;
     border-radius: 20px;
     background-color: black;
     color: white;
 }
+#removeProjectBtn {
+    right: 25px;
+    font-size: 20px;
+    margin-right: 15px;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+}
 
-#searchField{
+#searchField {
     width: 85%;
     height: 40px;
     border-radius: 20px;
 }
 
-.addProjectForm{
+.addProjectForm {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .project-card {
-    width: 31%; 
-    height: 200px; 
-    background-color: rgb(255, 255, 255);
+    width: 31%;
+    height: 200px;
     border-radius: 10px;
-    gap: 10 px;
     margin-top: 20px;
     margin-left: 1%;
     margin-right: 1%;
@@ -81,27 +88,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-  
-  }
-  
-  .project-card:hover {
-    transform: scale(1.05);
-  }
+}
 
-  .cardDiv{
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.cardDiv {
     display: flex;
-   flex-wrap: wrap;
+    flex-wrap: wrap;
     white-space: wrap;
     margin-left: 29px;
     margin-right: 29px;
     align-items: center;
-    
-  }
+}
 
-  .scrum-board {
+.scrum-board {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+}
+
+.addAssignmentDiv{
+    display: flex;
+    justify-content: center;
 }
 
 .column {
@@ -119,15 +129,6 @@ body {
     border-radius: 5px;
 }
 
-#removeProjectBtn{
-    right: 25px;
-    font-size: 20px;
-    margin-right: 15px;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    color: #000000;
-}
-
 a:link {
     color: #000000;
     text-decoration: none;
@@ -139,7 +140,6 @@ aside a:link {
 }
 
 #removeProjectBtn:hover {
-   
     transform: scale(120%);
     transition: 0.5s;
     text-decoration: none;
@@ -149,11 +149,10 @@ aside a:link {
     border-radius: 5px;
 }
 a:hover {
-   
     transform: scale(120%);
     transition: 0.5s;
     text-decoration: none;
-    padding: 7px;
+ 
 }
 
 a:active {
@@ -162,7 +161,7 @@ a:active {
 }
 
 a:focus {
-    background:rgb(99, 123, 86);
+    background: rgb(99, 123, 86);
     text-decoration: none;
 }
 
@@ -170,4 +169,3 @@ a:visited {
     color: #000000;
     text-decoration: none;
 }
-
