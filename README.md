@@ -6,7 +6,7 @@ Class: Java 23
 Teacher: Clara Leivas
 ```
 ## Github-pages-link
-
+https://aleksanderbjelk.github.io/JAVA23-AJS-slutprojekt-Aleksander-Bjelk/
 
 
 ## Description
