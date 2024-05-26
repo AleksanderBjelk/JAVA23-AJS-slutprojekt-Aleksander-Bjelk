@@ -17,11 +17,12 @@ In this assignment I have created a place where you can save diffrent Scrum boar
 - Inside your project you have a scrum board
 - With the scrum board you can keep track of your assignments and assign them to someone
 - You have the choice to choose between different categorys for your assignment
+- All of the data i stored in Google Firebase
 
 ## Setup/Installation Requirements
 - Clone the repo: ([https://github.com/AleksanderBjelk/java23-js-slutprojekt-Aleksander-Bjelk](https://github.com/AleksanderBjelk/JAVA23-AJS-slutprojekt-Aleksander-Bjelk))
 - Start your choice of application 
-- You need to install react, parcel and react browser router
+- You need to install react, parcel, react browser router and firebase
 - Run the project
 
 
@@ -52,3 +53,4 @@ Adding different assignments with different categorys. Here is also three differ
 - HTML
 - Javascript (React, React Browser-router, Parcel)
 - CSS
+- Google Firebase (Realtime database)
