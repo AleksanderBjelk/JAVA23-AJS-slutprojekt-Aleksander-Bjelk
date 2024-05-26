@@ -173,12 +173,11 @@ a:hover {
 }
 
 a:active {
-    box-shadow: 3px 3px 3px rgb(99, 123, 86);
+    box-shadow: 3px 3px 3px rgb(0, 0, 0);
     text-decoration: none;
 }
 
 a:focus {
-    background: rgb(99, 123, 86);
     text-decoration: none;
 }
 
