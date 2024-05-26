@@ -1,7 +1,10 @@
+//samlingsplats för allt som rör insidan av projekten, allstå scrum-board. Här sker även logik för att
+//lägga till assignment, uppdatera statusen, och ta bort ett assignment
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ref, onValue, push, set, remove } from "firebase/database";
-import { db } from "../../modules/firebaseConfig";
+import { db } from "../../utils/firebaseConfig";
 import AddAssignmentDiv from "./AddAssignmentDiv";
 import ScrumBoard from "./ScrumBoard";
 
@@ -11,10 +14,8 @@ function ProjectDetails() {
     const [assignments, setAssignments] = useState({});
     const [newAssignment, setNewAssignment] = useState({
         assignment: "",
-        category: "dev backend",
+        category: "dev-backend",
     });
-
-    
 
     useEffect(() => {
         const projectRef = ref(db, `projects/${projectId}`);
@@ -28,26 +29,32 @@ function ProjectDetails() {
 
         onValue(assignmentsRef, (snapshot) => {
             const data = snapshot.val();
-            console.log("Assignments data:", data);
-            setAssignments(data || {}); //helt otroligt att det ska ta sån tid att förstå detta
+            setAssignments(data || {});
         });
     }, [projectId]);
-
-
+    
 
     const handleAddAssignment = () => {
+        if (!newAssignment.assignment.trim()) {
+            alert("Du behöver skriva in ett namn för uppgiften!");
+            return;
+        }
         const assignmentsRef = ref(db, `projects/${projectId}/assignment`);
         const newAssignmentRef = push(assignmentsRef);
 
-        set(newAssignmentRef, {
-            ...newAssignment,
-            status: "to-do",
-            assigned: "",
-        });
+        try {
+            set(newAssignmentRef, {
+                ...newAssignment,
+                status: "to-do",
+                assigned: "",
+            });
 
-        setNewAssignment({ assignment: "", category: "dev backend" }); //sätter den så länge så det inte blir kludd
+            setNewAssignment({ assignment: "", category: "dev-backend" });
+        } catch (error) {
+            console.error("error: ", error);
+            alert("Något gick fel :( Var snäll och försök senare!");
+        }
     };
-
 
 
     const updateAssignmentStatus = (assignmentId, status) => {
@@ -56,12 +63,16 @@ function ProjectDetails() {
             `projects/${projectId}/assignment/${assignmentId}`
         );
 
-        set(assignmentRef, {
-            ...assignments[assignmentId],
-            status: status,
-        });
+        try {
+            set(assignmentRef, {
+                ...assignments[assignmentId],
+                status: status,
+            });
+        } catch (error) {
+            console.error("error: ", error);
+            alert("Något gick fel :( Var snäll och försök senare!");
+        }
     };
-
 
 
     const removeAssignment = (assignmentId) => {
@@ -70,10 +81,13 @@ function ProjectDetails() {
             `projects/${projectId}/assignment/${assignmentId}`
         );
 
-        remove(assignmentRef);
+        try {
+            remove(assignmentRef);
+        } catch (error) {
+            console.error("error: ", error);
+            alert("Något gick fel :( Var snäll och försök senare!");
+        }
     };
-
-    //5h senare och måste fixa som efter prettier förstörde allt och dela upp i fler komponenter
 
     return (
         <div>
@@ -91,7 +105,14 @@ function ProjectDetails() {
                         handleAddAssignment={handleAddAssignment}
                     />
 
+                    <div className="categoryColorDiv">
+                        <h1 id="devBackendColor">Dev backend</h1>
+                        <h1 id="devFrontendColor">Dev frontend</h1>
+                        <h1 id="uxColor">ux</h1>
+                    </div>
+
                     <ScrumBoard
+                        projectId={projectId}
                         assignments={assignments}
                         updateAssignmentStatus={updateAssignmentStatus}
                         removeAssignment={removeAssignment}

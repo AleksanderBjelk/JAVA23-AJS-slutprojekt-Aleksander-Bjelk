@@ -1,11 +1,13 @@
+//hanterar inmatningen från användaren vid skapandet av ett nytt projekt
+
 import { useState } from "react";
 
-function AddProject({ onAddProject }) {
+function AddProjectDiv({ handleAddProject }) {
     const [newProjectName, setNewProjectName] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onAddProject(newProjectName);
+        handleAddProject(newProjectName);
         setNewProjectName("");
     };
 
@@ -28,4 +30,4 @@ function AddProject({ onAddProject }) {
     );
 }
 
-export default AddProject;
+export default AddProjectDiv;

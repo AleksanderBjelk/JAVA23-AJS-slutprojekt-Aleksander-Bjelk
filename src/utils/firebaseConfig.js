@@ -1,3 +1,5 @@
+//hämtar datan från firebase databasen och exporterar datan
+
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref } from "firebase/database";
 
@@ -19,8 +21,8 @@ const db = getDatabase(app);
 
 const projectsRef = ref(db, 'projects');
 const categoriesRef = ref(db, 'categories');
-const devBackendRef = ref(db, 'categories/dev backend');
-const devFrontendRef = ref(db, 'categories/dev frontend');
+const devBackendRef = ref(db, 'categories/dev-backend');
+const devFrontendRef = ref(db, 'categories/dev-frontend');
 const uxRef = ref(db, 'categories/ux');
 
 

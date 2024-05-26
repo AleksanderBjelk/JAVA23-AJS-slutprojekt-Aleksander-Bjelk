@@ -7,9 +7,7 @@ body {
 
 .header {
     background-color: rgb(99, 123, 86);
-    margin-left: 29px;
-    margin-right: 29px;
-    border-radius: 20px;
+  
 }
 
 @keyframes huvudtext {
@@ -46,7 +44,10 @@ body {
     box-sizing: border-box;
     text-align: center;
     font-size: 40px;
+    margin-top: 0;
 }
+
+/* Main för startsida */
 
 #addProjectBtn {
     height: 40px;
@@ -103,32 +104,57 @@ body {
     align-items: center;
 }
 
+/* Main för sidan inuti i ett projekt */
+
 .scrum-board {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
 
-.addAssignmentDiv{
-    display: flex;
-    justify-content: center;
-}
-.addAssignmentDiv{
+.addAssignmentDiv {
     display: flex;
     justify-content: center;
 }
 
-.projectDetailsInput{
+.categoryColorDiv {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20%;
+    margin-right: 30%;
+}
+
+#devBackendColor, .dev-backend {
+    background-color: purple;
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+}
+
+#devFrontendColor, .dev-frontend {
+    padding: 5px;
+    background-color: skyblue;
+    color: white;
+    border-radius: 10px;
+}
+
+#uxColor, .ux {
+    background-color: orange;
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+}
+
+.projectDetailsInput {
     border-radius: 20px;
-    width: 30%
+    width: 30%;
 }
 
-.projectDetailsBtn{
+.projectDetailsBtn {
     height: 40px;
     border-radius: 20px;
     background-color: black;
     color: white;
-
 }
 
 .column {
@@ -140,11 +166,13 @@ body {
 }
 
 .assignment-card {
-    background-color: rgb(255, 255, 255);
+
     margin: 10px 0px;
     padding: 10px;
     border-radius: 5px;
 }
+
+/* länk hantering */
 
 a:link {
     color: #000000;
@@ -166,10 +194,9 @@ aside a:link {
     border-radius: 5px;
 }
 a:hover {
-    transform: scale(120%);
+    transform: scale(110%);
     transition: 0.5s;
     text-decoration: none;
- 
 }
 
 a:active {

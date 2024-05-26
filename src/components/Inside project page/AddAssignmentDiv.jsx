@@ -1,3 +1,5 @@
+//hantering av elementen för att lägga till ett assignment
+
 function AddAssignmentDiv({
     newAssignment,
     handleAddAssignment,
@@ -28,8 +30,8 @@ function AddAssignmentDiv({
                     })
                 }
             >
-                <option value="dev backend">Dev Backend</option>
-                <option value="dev frontend">Dev Frontend</option>
+                <option value="dev-backend">Dev Backend</option>
+                <option value="dev-frontend">Dev Frontend</option>
                 <option value="ux">UX</option>
             </select>
 

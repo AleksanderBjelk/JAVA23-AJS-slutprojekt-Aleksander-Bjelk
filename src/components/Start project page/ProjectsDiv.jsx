@@ -1,6 +1,8 @@
+//hanterar projekt-elementen och ger dem en (ljus)slumpmässigfärg och en knapp för att ta bort projekt
+
 import { Link } from "react-router-dom";
 
-function ProjectsDiv({ projects, onRemoveProject }) {
+function ProjectsDiv({ projects, handleRemoveProject }) {
   console.log("Projects:", projects); 
 
   const lightColors = [ //chat gpt genererat
@@ -24,9 +26,9 @@ function ProjectsDiv({ projects, onRemoveProject }) {
           Object.keys(projects).map((projectId) => (
             
               //kolla med clara om det är ok med style
-              <div key={projectId} className="project-card" style={{ backgroundColor: getRandomColor() }}> 
+              <div key={projectId} className="project-card" style={{backgroundColor: getRandomColor()}}> 
 
-                <button id="removeProjectBtn" onClick={() => onRemoveProject(projectId)}>X</button>
+                <button id="removeProjectBtn" onClick={() => handleRemoveProject(projectId)}>X</button>
                 <Link to={`/project/${projectId}`} >
                   <h2>{projects[projectId].name}</h2>
                 </Link>
