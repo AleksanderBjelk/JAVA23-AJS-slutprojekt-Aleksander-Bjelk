@@ -1,3 +1,6 @@
+import { ref, set} from "firebase/database";
+import { db } from "../../modules/firebaseConfig";
+
 function ScrumBoard({ assignments, updateAssignmentStatus, removeAssignment }) {
     return (
         <div className="scrum-board">
