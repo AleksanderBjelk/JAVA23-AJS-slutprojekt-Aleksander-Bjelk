@@ -1,5 +1,5 @@
- //Här sker även logik för att lägga till assignment, uppdatera statusen, och ta bort ett assignment.
- //här hämtar vi även ScrumBoard komponenten och AddAssignmentDiv
+//Här sker även logik för att lägga till assignment, uppdatera statusen, och ta bort ett assignment.
+//här hämtar vi även ScrumBoard komponenten och AddAssignmentDiv
 
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -7,7 +7,6 @@ import { ref, onValue, push, set, remove } from "firebase/database";
 import { db } from "../../utils/firebaseConfig";
 import AddAssignmentDiv from "./AddAssignmentDiv";
 import ScrumBoard from "./ScrumBoard";
-
 
 function ProjectDetails() {
     const { projectId } = useParams();
@@ -34,7 +33,6 @@ function ProjectDetails() {
         });
     }, [projectId]);
 
-
     const handleAddAssignment = () => {
         if (!newAssignment.assignment.trim()) {
             alert("Du behöver skriva in ett namn för uppgiften!");
@@ -57,7 +55,6 @@ function ProjectDetails() {
         }
     };
 
-
     const updateAssignmentStatus = (assignmentId, status) => {
         const assignmentRef = ref(
             db,
@@ -74,7 +71,6 @@ function ProjectDetails() {
             alert("Något gick fel :( Var snäll och försök senare!");
         }
     };
-
 
     const removeAssignment = (assignmentId) => {
         const assignmentRef = ref(
@@ -98,9 +94,9 @@ function ProjectDetails() {
                         <h2 className="headertext">
                             Scrum Board: {project.name}
                         </h2>
-                     <Link className="goBackLink" to={`/`}>
-                <h2>Gå tillbaka till startsidan</h2>
-            </Link>
+                        <Link className="goBackLink" to={`/`}>
+                            <h2>Gå tillbaka till startsidan</h2>
+                        </Link>
                     </div>
 
                     <AddAssignmentDiv
