@@ -2,11 +2,12 @@
  //här hämtar vi även ScrumBoard komponenten och AddAssignmentDiv
 
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { ref, onValue, push, set, remove } from "firebase/database";
 import { db } from "../../utils/firebaseConfig";
 import AddAssignmentDiv from "./AddAssignmentDiv";
 import ScrumBoard from "./ScrumBoard";
+
 
 function ProjectDetails() {
     const { projectId } = useParams();
@@ -97,6 +98,9 @@ function ProjectDetails() {
                         <h2 className="headertext">
                             Scrum Board: {project.name}
                         </h2>
+                     <Link className="goBackLink" to={`/`}>
+                <h2>Gå tillbaka till startsidan</h2>
+            </Link>
                     </div>
 
                     <AddAssignmentDiv
