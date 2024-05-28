@@ -147,7 +147,8 @@ body {
 
 .projectDetailsInput {
     border-radius: 20px;
-    width: 30%;
+    width: 250px;
+    height: 40px;
 }
 
 .projectDetailsBtn {

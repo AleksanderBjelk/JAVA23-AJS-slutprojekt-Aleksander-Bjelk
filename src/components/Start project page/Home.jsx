@@ -40,6 +40,7 @@ function Home() {
         const projectRef = ref(db, `projects/${projectId}`);
         try {
             remove(projectRef);
+            alert(`Du har nu tagit bort projektet: "${projects[projectId].name}"`);
         } catch (error) {
             console.error("error: ", error);
             alert("Något gick fel :( Var snäll och försök senare!");
