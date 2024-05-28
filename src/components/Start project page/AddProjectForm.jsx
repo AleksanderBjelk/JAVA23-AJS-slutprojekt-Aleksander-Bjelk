@@ -1,4 +1,4 @@
-//hanterar inmatningen från användaren vid skapandet av ett nytt projekt
+//Skapar element för att användaren ska kunna lägga till ett nytt projekt. 
 
 import { useState } from "react";
 

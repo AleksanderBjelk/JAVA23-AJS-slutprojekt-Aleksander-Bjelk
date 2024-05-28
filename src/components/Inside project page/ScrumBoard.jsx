@@ -1,4 +1,5 @@
-//hanterar elementen för scrum board, här finns även knappar som ändrar statusen på ett assignment utifrån användarens input
+//Skapar element för att visa de olika kategorierna för ett assignment. 
+//Här finns även logiken för att ändra status på ett assignment genom knappar
 
 import { ref, set } from "firebase/database";
 import { db } from "../../utils/firebaseConfig";

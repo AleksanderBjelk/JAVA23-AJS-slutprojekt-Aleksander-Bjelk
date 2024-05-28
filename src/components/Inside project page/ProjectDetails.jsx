@@ -1,5 +1,5 @@
-//samlingsplats för allt som rör insidan av projekten, allstå scrum-board. Här sker även logik för att
-//lägga till assignment, uppdatera statusen, och ta bort ett assignment
+ //Här sker även logik för att lägga till assignment, uppdatera statusen, och ta bort ett assignment.
+ //här hämtar vi även ScrumBoard komponenten och AddAssignmentDiv
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -32,7 +32,7 @@ function ProjectDetails() {
             setAssignments(data || {});
         });
     }, [projectId]);
-    
+
 
     const handleAddAssignment = () => {
         if (!newAssignment.assignment.trim()) {
@@ -119,7 +119,7 @@ function ProjectDetails() {
                     />
                 </div>
             ) : (
-                <p>Loading...</p>
+                <p>Loading... please check your connection!</p>
             )}
         </div>
     );

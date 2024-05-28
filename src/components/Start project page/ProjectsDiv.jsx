@@ -1,11 +1,12 @@
-//hanterar projekt-elementen och ger dem en (ljus)slumpmässigfärg och en knapp för att ta bort projekt
+//Skapar element för att användaren ska kunna se projekt/projekten. 
+//Ger dem en (ljus)slumpmässigfärg och en knapp för att ta bort projekt
 
 import { Link } from "react-router-dom";
 
 function ProjectsDiv({ projects, handleRemoveProject }) {
   console.log("Projects:", projects); 
 
-  const lightColors = [ //chat gpt genererat
+  const lightColors = [ 
     "#FFCCCB", "#FFA07A", "#FFD700", "#FFB6C1", "#FF6347", "#FF69B4", "#FFC0CB", 
     "#FFDAB9", "#FFE4E1", "#FFF0F5", "#FFF8DC", "#FFFACD", "#FFFAF0", "#FFFAFA", 
     "#FF4500", "#FF7F50", "#FF8C00", "#FFA500", "#FFDAB9", "#FFDEAD", "#FFE4B5", 
@@ -25,7 +26,6 @@ function ProjectsDiv({ projects, handleRemoveProject }) {
 
           Object.keys(projects).map((projectId) => (
             
-              //kolla med clara om det är ok med style
               <div key={projectId} className="project-card" style={{backgroundColor: getRandomColor()}}> 
 
                 <button id="removeProjectBtn" onClick={() => handleRemoveProject(projectId)}>X</button>

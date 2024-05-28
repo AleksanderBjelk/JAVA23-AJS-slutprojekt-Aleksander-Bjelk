@@ -1,4 +1,4 @@
-//hantering av elementen för att lägga till ett assignment
+//Skapar element för att användaren ska kunna skapa assignment och kunna välja vilken kategori dem vill lägga det i
 
 function AddAssignmentDiv({
     newAssignment,

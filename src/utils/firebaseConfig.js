@@ -1,7 +1,7 @@
 //hämtar datan från firebase databasen och exporterar datan
 
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref } from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 
 const firebaseConfig = {
@@ -27,3 +27,7 @@ const uxRef = ref(db, 'categories/ux');
 
 
 export { db, projectsRef, categoriesRef, devBackendRef, devFrontendRef, uxRef };
+
+
+//referenser
+//https://firebase.google.com/docs/database/web/offline-capabilities

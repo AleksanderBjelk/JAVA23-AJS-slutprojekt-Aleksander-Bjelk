@@ -4,7 +4,7 @@ import { onValue, push, ref, remove, set } from "firebase/database";
 import { useEffect, useState } from "react";
 import { projectsRef, db } from "../../utils/firebaseConfig";
 import ProjectsDiv from "./ProjectsDiv";
-import AddProjectDiv from "./AddProjectDiv";
+import AddProjectDiv from "./AddProjectForm";
 
 function Home() {
     const [projects, setProjects] = useState({});
@@ -20,7 +20,7 @@ function Home() {
             }
         });
     }, []);
-    
+
 
     const handleAddProject = (newProjectName) => {
         const newProjectRef = push(projectsRef);
