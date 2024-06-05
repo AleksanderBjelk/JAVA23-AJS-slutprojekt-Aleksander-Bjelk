@@ -12,11 +12,7 @@ function ProjectDetails() {
     const { projectId } = useParams();
     const [project, setProject] = useState(null);
     const [assignments, setAssignments] = useState({});
-    const [newAssignment, setNewAssignment] = useState({
-        assignment: "",
-        category: "dev-backend",
-    });
-
+    
     useEffect(() => {
         const projectRef = ref(db, `projects/${projectId}`);
 
@@ -33,7 +29,7 @@ function ProjectDetails() {
         });
     }, [projectId]);
 
-    const handleAddAssignment = () => {
+    const handleAddAssignment = (newAssignment) => {
         if (!newAssignment.assignment.trim()) {
             alert("Du behöver skriva in ett namn för uppgiften!");
             return;
@@ -47,8 +43,6 @@ function ProjectDetails() {
                 status: "to-do",
                 assigned: "",
             });
-
-            setNewAssignment({ assignment: "", category: "dev-backend" });
         } catch (error) {
             console.error("error: ", error);
             alert("Något gick fel :( Var snäll och försök senare!");
@@ -99,11 +93,7 @@ function ProjectDetails() {
                         </Link>
                     </div>
 
-                    <AddAssignmentDiv
-                        newAssignment={newAssignment}
-                        setNewAssignment={setNewAssignment}
-                        handleAddAssignment={handleAddAssignment}
-                    />
+                    <AddAssignmentDiv handleAddAssignment={handleAddAssignment} />
 
                     <div className="categoryColorDiv">
                         <h1 id="devBackendColor">Dev backend</h1>

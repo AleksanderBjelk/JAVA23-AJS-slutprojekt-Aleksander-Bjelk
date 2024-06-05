@@ -1,13 +1,19 @@
 //Skapar element för att användaren ska kunna skapa assignment och kunna välja vilken kategori dem vill lägga det i
 
-function AddAssignmentDiv({
-    newAssignment,
-    handleAddAssignment,
-    setNewAssignment,
-}) {
+import { useRef } from "react";
+
+function AddAssignmentDiv({ handleAddAssignment }) {
+    const assignmentRef = useRef("");
+    const categoryRef = useRef("dev-backend");
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleAddAssignment();
+        handleAddAssignment({
+            assignment: assignmentRef.current.value,
+            category: categoryRef.current.value,
+        });
+        assignmentRef.current.value = "";
+        categoryRef.current.value = "dev-backend";
     };
 
     return (
@@ -16,25 +22,14 @@ function AddAssignmentDiv({
                 <input
                     className="projectDetailsInput"
                     type="text"
-                    value={newAssignment.assignment}
-                    onChange={(event) =>
-                        setNewAssignment({
-                            ...newAssignment,
-                            assignment: event.target.value,
-                        })
-                    }
-                    placeholder="Enter new asignment"
+                    ref={assignmentRef}
+                    placeholder="Enter new assignment"
                     required
                 />
                 <select
                     className="projectDetailsBtn"
-                    value={newAssignment.category}
-                    onChange={(event) =>
-                        setNewAssignment({
-                            ...newAssignment,
-                            category: event.target.value,
-                        })
-                    }
+                    ref={categoryRef}
+                    defaultValue="dev-backend"
                 >
                     <option value="dev-backend">Dev Backend</option>
                     <option value="dev-frontend">Dev Frontend</option>
