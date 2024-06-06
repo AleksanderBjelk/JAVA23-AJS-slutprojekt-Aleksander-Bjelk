@@ -1,23 +1,25 @@
 //Skapar element för att användaren ska kunna lägga till ett nytt projekt. 
 
-import { useRef } from "react";
-
 function AddProjectDiv({ handleAddProject }) {
-    const newProjectNameRef = useRef("");
+    let newProjectName = ""; 
+
+    const handleInputChange = (event) => {
+        newProjectName = event.target.value; 
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleAddProject(newProjectNameRef.current.value);
-        newProjectNameRef.current.value = "";
+        handleAddProject(newProjectName); 
+        event.target.reset(); 
     };
 
     return (
         <div>
             <form className="addProjectForm" onSubmit={handleSubmit}>
-            <input
+                <input
                     id="searchField"
                     type="text"
-                    ref={newProjectNameRef}
+                    onChange={handleInputChange} 
                     placeholder="Write a name for your new project"
                     required
                 />

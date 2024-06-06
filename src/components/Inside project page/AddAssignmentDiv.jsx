@@ -1,19 +1,24 @@
 //Skapar element för att användaren ska kunna skapa assignment och kunna välja vilken kategori dem vill lägga det i
 
-import { useRef } from "react";
-
 function AddAssignmentDiv({ handleAddAssignment }) {
-    const assignmentRef = useRef("");
-    const categoryRef = useRef("dev-backend");
+    let assignment = "";
+    let category = "dev-backend";
+
+    const handleInputChange = (event) => {
+        assignment = event.target.value;
+    };
+
+    const handleSelectChange = (event) => {
+        category = event.target.value;
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         handleAddAssignment({
-            assignment: assignmentRef.current.value,
-            category: categoryRef.current.value,
+            assignment: assignment,
+            category: category,
         });
-        assignmentRef.current.value = "";
-        categoryRef.current.value = "dev-backend";
+        event.target.reset(); 
     };
 
     return (
@@ -22,13 +27,13 @@ function AddAssignmentDiv({ handleAddAssignment }) {
                 <input
                     className="projectDetailsInput"
                     type="text"
-                    ref={assignmentRef}
+                    onChange={handleInputChange} 
                     placeholder="Enter new assignment"
                     required
                 />
                 <select
                     className="projectDetailsBtn"
-                    ref={categoryRef}
+                    onChange={handleSelectChange} 
                     defaultValue="dev-backend"
                 >
                     <option value="dev-backend">Dev Backend</option>
